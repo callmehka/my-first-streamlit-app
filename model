@@ -1,0 +1,8 @@
+import streamlit as st
+import pickle
+import numpy as np
+st.title('Revenue Prediction')
+a = st.number_input('Input Temperature')
+model = pickle.load(open('model.icecream', "rb"))
+if st.button('Predict'):
+  st.success(*list(*model.predict(np.array(a).reshape(1,1))))
